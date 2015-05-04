@@ -2,25 +2,25 @@ package objComp.util;
 
 public class First{
 	
-	private int intValue;
-	private String stringValue;
+	private int IntValue;
+	private String StringValue;
 	
 	public First(){}
 	
 	public void setIntValue(int iIn){
-		intValue = iIn;
+		IntValue = iIn;
 	}
 
 	public void setStringValue(String sIn){
-		stringValue = sIn;
+		StringValue = sIn;
 	}
 
 	public int getIntValue(){
-		return intValue;
+		return IntValue;
 	}
 
 	public String getStringValue(){
-		return stringValue;
+		return StringValue;
 	}
 
 
@@ -33,14 +33,14 @@ public class First{
 			return false;
 		}
 		First temp = (First)o;
-		return (intValue == temp.getIntValue()) && (stringValue == temp.getStringValue());
+		return (IntValue == temp.getIntValue()) && (StringValue == temp.getStringValue());
 	}
 
 	@Override
 	public int hashCode(){
 		int hash = 5;
-		hash = hash + intValue;
-		hash = hash + (stringValue != null ? stringValue.hashCode() : 0);
+		hash = hash + IntValue;
+		hash = hash + (StringValue != null ? StringValue.hashCode() : 0);
 		return hash;
 	}	
 }

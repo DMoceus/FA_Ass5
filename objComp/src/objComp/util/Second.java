@@ -1,24 +1,24 @@
 package objComp.util;
 
 public class Second{
-	private double doubleValue;
-	private int intValue;
+	private double DoubleValue;
+	private int IntValue;
 	public Second(){}
 
 	public void setIntValue(int iIn){
-		intValue = iIn;
+		IntValue = iIn;
 	}
 
 	public void setDoubleValue(double dIn){
-		doubleValue = dIn;
+		DoubleValue = dIn;
 	}
 	
 	public int getIntValue(){
-		return intValue;
+		return IntValue;
 	}
 
 	public double getDoubleValue(){
-		return doubleValue;
+		return DoubleValue;
 	}
 
 	@Override
@@ -30,14 +30,14 @@ public class Second{
 			return false;
 		}
 		Second temp = (Second)o;
-		return (intValue == temp.getIntValue()) && (doubleValue == temp.getDoubleValue());
+		return (IntValue == temp.getIntValue()) && (DoubleValue == temp.getDoubleValue());
 	}
 
 	@Override
 	public int hashCode(){
 		int hash = 7;
-		hash = hash + intValue;
-		hash = hash + Double.valueOf(doubleValue).hashCode();
+		hash = hash + IntValue;
+		hash = hash + Double.valueOf(DoubleValue).hashCode();
 		return hash;
 	}
 }
