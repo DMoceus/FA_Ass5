@@ -18,6 +18,8 @@ public class PopulateObjects{
 	private HashMap<Second,Integer> secondMap;
 	private HashMap<String,Class> typeMap;
 	private FileProcessor processor;
+
+	MyLogger logger = MyLogger.getInstance();
 	
 	public PopulateObjects(FileProcessor pIn){
 		firstMap = new HashMap<First,Integer>();
@@ -26,9 +28,13 @@ public class PopulateObjects{
 		typeMap.put("int",Integer.TYPE);
 		typeMap.put("double",Double.TYPE);
 		typeMap.put("String",String.class);
+		logger.printMessage(2, "PopulateObjects constructor");
+		logger.printMessage(2, "PopulateObjects");
 	}
 	
 	public void addFirst(First fIn){
+		logger.printMessage(1, "addFirst() in PopulateObjects");
+		logger.printMessage(2, "addFirst() called in PopulateObjects");
 		if(firstMap.containsKey(fIn)){
 			firstMap.put(fIn,firstMap.get(fIn)+1);
 		}
@@ -38,6 +44,8 @@ public class PopulateObjects{
 	}
 	
 	public void addSecond(Second sIn){
+		logger.printMessage(1, "addSecond() in PopulateObjects");
+		logger.printMessage(2, "addSecond() called in PopulateObjects");
 		if(secondMap.containsKey(sIn)){
 			secondMap.put(sIn,secondMap.get(sIn)+1);
 		}
@@ -45,8 +53,46 @@ public class PopulateObjects{
 			secondMap.put(sIn,1);
 		}
 	}
+
+	public int numNonDuplicateFirst(){
+		logger.printMessage(1, "numNonDuplicateFirst() in PopulateObjects");
+		return firstMap.size();
+	}
+
+	public int numNonDuplicateSecond(){
+		logger.printMessage(1, "numNonDuplicateSecond in PopulateObjects");
+		return secondMap.size();
+	}
+
+	public int totalNumFirst(){
+		logger.printMessage(1, "totalNumFirst() in PopulateObjects");
+		int total = 0;
+		for (int number : firstMap.values()){
+			total += number;
+		}
+		return total;
+	}
+
+	public int totalNumSecond(){
+		logger.printMessage(1, "totalNumSecond() in PopulateObjects");
+		int total = 0;
+		for (int number : secondMap.values()){
+			total += number;
+		}
+
+		return total;
+	}
+
+	public void printInfo(){
+		logger.printMessage(1, "printInfo() in PopulateObjects");
+		System.out.println("Number of non-duplicate First objects: " + numNonDuplicateFirst());
+		System.out.println("Total Number of First objects: " + totalNumFirst());
+		System.out.println("Number of non-duplicate Second objects: " + numNonDuplicateSecond());
+		System.out.println("Total Number of Second objects: " + totalNumSecond());
+	}
 	
 	public void deserObjects(){
+		logger.printMessage(1, "deserObjects in PopulateObjects");
 		String inputHolder;
 		String clsName;
 		Class cls;
