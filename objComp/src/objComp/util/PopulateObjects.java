@@ -108,7 +108,7 @@ public class PopulateObjects{
 	
 		String classNameRE = "fqn:(.*)";
 		Pattern classPattern = Pattern.compile(classNameRE);
-		String variablesRE = "/type=(.*), var=(.*), value=(.*)/";
+		String variablesRE = "type=(.*), var=(.*), value=(.*)";
 		Pattern variablePattern = Pattern.compile(variablesRE);
 		Matcher m;
 		
