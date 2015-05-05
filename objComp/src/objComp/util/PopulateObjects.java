@@ -132,7 +132,15 @@ public class PopulateObjects{
 					signature[0] = typeMap.get(m.group(1));
 					methName = "set" + m.group(2);
 					meth = cls.getMethod(methName, signature);
-					params[0] = Integer.parseInt(m.group(3));
+					if(m.group(1).equals("int")){
+						params[0] = Integer.parseInt(m.group(3));
+					}
+					else if(m.group(1).equals("double")){
+						params[0] = Double.parseDouble(m.group(3));
+					}
+					else{
+						params[0] = new String(m.group(3));
+					}
 					meth.invoke(obj,params);
 					
 					inputHolder = processor.getNextLineFromFile();
@@ -145,7 +153,10 @@ public class PopulateObjects{
 					signature[0] = typeMap.get(m.group(1));
 					methName = "set" + m.group(2);
 					meth = cls.getMethod(methName, signature);
-					if(m.group(1) == "double"){
+					if(m.group(1).equals("int")){
+						params[0] = Integer.parseInt(m.group(3));
+					}
+					else if(m.group(1).equals("double")){
 						params[0] = Double.parseDouble(m.group(3));
 					}
 					else{

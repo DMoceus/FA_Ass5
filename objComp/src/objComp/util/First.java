@@ -42,7 +42,7 @@ public class First{
 			return false;
 		}
 		First temp = (First)o;
-		return (IntValue == temp.getIntValue()) && (StringValue == temp.getStringValue());
+		return (IntValue == temp.getIntValue()) && (StringValue.equals(temp.getStringValue()));
 	}
 
 	@Override
