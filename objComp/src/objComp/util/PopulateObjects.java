@@ -24,6 +24,7 @@ public class PopulateObjects{
 	public PopulateObjects(FileProcessor pIn){
 		firstMap = new HashMap<First,Integer>();
 		secondMap = new HashMap<Second,Integer>();
+		typeMap = new HashMap<String,Class>();
 		processor = pIn;
 		typeMap.put("int",Integer.TYPE);
 		typeMap.put("double",Double.TYPE);
