@@ -106,7 +106,7 @@ public class PopulateObjects{
 
 		String inputType;
 	
-		String classNameRE = "/fqn:(.*)/";
+		String classNameRE = "fqn:(.*)";
 		Pattern classPattern = Pattern.compile(classNameRE);
 		String variablesRE = "/type=(.*), var=(.*), value=(.*)/";
 		Pattern variablePattern = Pattern.compile(variablesRE);
@@ -117,6 +117,7 @@ public class PopulateObjects{
 			try{
 				if(inputHolder != ""){
 					m = classPattern.matcher(inputHolder);
+					m.matches();
 					clsName = m.group(1);
 					cls = Class.forName(clsName);
 					obj = cls.newInstance();
@@ -127,6 +128,7 @@ public class PopulateObjects{
 					}
 				
 					m = variablePattern.matcher(inputHolder);
+					m.matches();
 					signature[0] = typeMap.get(m.group(1));
 					methName = "set" + m.group(2);
 					meth = cls.getMethod(methName, signature);
@@ -139,6 +141,7 @@ public class PopulateObjects{
 					}
 				
 					m = variablePattern.matcher(inputHolder);
+					m.matches();
 					signature[0] = typeMap.get(m.group(1));
 					methName = "set" + m.group(2);
 					meth = cls.getMethod(methName, signature);
